@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>내 Todo 앱</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <h1>✅ 내 Todo 앱</h1>
+    <p class="sub">마감일 · 태그 달린 할 일 목록 (내 컴퓨터의 todo.db에 저장)</p>
+
+    <form id="addForm" class="add-form">
+      <input id="titleInput" type="text" placeholder="할 일을 입력하세요" required />
+      <input id="deadlineInput" type="date" />
+      <input id="tagsInput" type="text" placeholder="태그(쉼표로 구분, 예: 공부,집안일)" />
+      <button type="submit">추가</button>
+    </form>
+
+    <div class="filter-row">
+      <label>태그 필터:
+        <select id="tagFilter">
+          <option value="">전체</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="hideDone" /> 완료된 항목 숨기기</label>
+    </div>
+
+    <ul id="list" class="list"></ul>
+    <p id="empty" class="empty" hidden>할 일이 없습니다. 위에서 추가해 보세요!</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
