@@ -79,10 +79,17 @@ app.patch("/api/todos/:id", (req, res) => {
     done: done !== undefined ? (done ? 1 : 0) : existing.done,
     deadline: deadline !== undefined ? deadline : existing.deadline,
   };
-  db.prepare("UPDATE todos SET title = ?, done = ?, deadline = ? WHERE id = ?").run(
+  const completedAt =
+    next.done === existing.done
+      ? existing.completed_at
+      : next.done
+        ? new Date().toLocaleString("sv-SE")
+        : null;
+  db.prepare("UPDATE todos SET title = ?, done = ?, deadline = ?, completed_at = ? WHERE id = ?").run(
     next.title,
     next.done,
     next.deadline,
+    completedAt,
     id
   );
   const todo = attachTags([db.prepare("SELECT * FROM todos WHERE id = ?").get(id)])[0];

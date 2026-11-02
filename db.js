@@ -31,4 +31,9 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_todos_deadline ON todos(deadline);
 `);
 
+const cols = db.prepare("PRAGMA table_info(todos)").all();
+if (!cols.some((c) => c.name === "completed_at")) {
+  db.exec("ALTER TABLE todos ADD COLUMN completed_at TEXT");
+}
+
 module.exports = db;
