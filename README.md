@@ -35,7 +35,7 @@ npm start
 - `supabase-schema.sql` — 표 3개와 RLS 정책 (Supabase SQL Editor에서 실행)
 - `SUPABASE-전환.md` — 가입과 키 발급 순서, `전환-확인-기록.md` — 확인 체크리스트
 - 서버는 로그인 사용자의 토큰으로 DB에 접근하므로 RLS가 적용됩니다(`service_role` 키는 쓰지 않음).
-- 확인 상태: 로컬 동작은 확인 완료. Supabase 동작과 RLS는 계정 생성 후 `전환-확인-기록.md`에 기록합니다.
+- 확인 상태: 로컬(길 A)과 Supabase(길 B) 모두 확인 완료. 결과는 `전환-확인-기록.md`, 검증 스크립트는 `node scripts/rls-check.js`.
 
 ## CLI
 `node todo.js list | add "<내용>" | done <번호> | summary` (로컬 SQLite 전용)
