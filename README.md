@@ -1,4 +1,4 @@
-# 내 Todo 앱 (길 A: 로컬 SQLite)
+# 내 Todo 앱 (길 A: 로컬 SQLite + 길 B: Supabase)
 
 AIFFEL 04 노드 실습 — 새로고침해도, 서버를 껐다 켜도 남는 Todo 앱입니다.
 
