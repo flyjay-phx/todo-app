@@ -29,6 +29,13 @@ npm start
 - [x] 삭제 정상 동작
 - [x] `todo.db` 파일을 직접 열어 행이 실제로 쌓이는 것 확인
 
-## 길 B (Supabase로 전환) — 안내만 작성, 실행은 보류
-Supabase는 **계정 가입이 필요한 외부 서비스**라서, 이 실습에서는 가입·로그인을 대신 진행하지 않았습니다.
-`SUPABASE-전환.md`에 전환 순서와 준비물을 정리해 두었습니다. 가입 후 이어서 진행할 수 있습니다.
+## 길 B (Supabase로 전환)
+코드는 이미 두 저장소를 지원합니다. `.env`에 `SUPABASE_URL`과 `SUPABASE_ANON_KEY`가 있으면 Supabase 모드(로그인 + RLS), 비어 있으면 로컬 SQLite 모드로 동작합니다.
+- `store-sqlite.js` / `store-supabase.js` — 같은 함수 모양의 데이터 계층 두 개
+- `supabase-schema.sql` — 표 3개와 RLS 정책 (Supabase SQL Editor에서 실행)
+- `SUPABASE-전환.md` — 가입과 키 발급 순서, `전환-확인-기록.md` — 확인 체크리스트
+- 서버는 로그인 사용자의 토큰으로 DB에 접근하므로 RLS가 적용됩니다(`service_role` 키는 쓰지 않음).
+- 확인 상태: 로컬 동작은 확인 완료. Supabase 동작과 RLS는 계정 생성 후 `전환-확인-기록.md`에 기록합니다.
+
+## CLI
+`node todo.js list | add "<내용>" | done <번호> | summary` (로컬 SQLite 전용)

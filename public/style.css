@@ -92,3 +92,6 @@ h1 { margin: 0 0 4px; font-size: 26px; }
 .item .del:hover { color: #ef4444; }
 
 .empty { text-align: center; color: #9ca3af; padding: 24px 0; }
+
+.user-bar { display: flex; gap: 8px; align-items: center; justify-content: flex-end; margin-bottom: 8px; font-size: 14px; }
+[hidden] { display: none !important; }
